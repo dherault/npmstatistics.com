@@ -1,0 +1,38 @@
+{
+  "name": "npmstatistics.com",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "sync-s3": "aws s3 sync build/ s3://npmstatistics.com --region eu-west-3",
+    "invalidate-cloudfront": "aws cloudfront create-invalidation --distribution-id ENZ6PO78SW481 --paths /*",
+    "deploy": "npm run sync-s3 && npm run invalidate-cloudfront",
+    "build-deploy": "npm run build && npm run deploy"
+  },
+  "eslintConfig": {
+    "extends": "dherault"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1"
+  },
+  "devDependencies": {
+    "eslint-config-dherault": "^1.0.2"
+  }
+}
