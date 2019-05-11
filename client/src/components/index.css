@@ -1,0 +1,10 @@
+.Layout-nav {
+  padding: 0 10%;
+  min-height: 64px;
+  box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.15);
+}
+
+.Layout-content {
+  width: 80%;
+  margin: auto;
+}

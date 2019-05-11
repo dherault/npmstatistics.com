@@ -2,6 +2,8 @@
   "name": "npmstatistics.com",
   "version": "0.1.0",
   "private": true,
+  "author": "David Hérault <dherault@gmail.com> (https://github.com/dherault)",
+  "license": "MIT",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -15,6 +17,7 @@
   "eslintConfig": {
     "extends": "dherault",
     "rules": {
+      "no-await-in-loop": "off",
       "react/destructuring-assignment": "off"
     }
   },
@@ -31,7 +34,10 @@
     ]
   },
   "dependencies": {
+    "chart.js": "^2.8.0",
+    "chartjs-color": "^2.3.0",
     "flexpad": "^0.2.1",
+    "moment": "^2.24.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.3",
