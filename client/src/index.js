@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { Router, Switch, Route } from 'react-router-dom'
 
 import './index.css'
 import 'flexpad/dist/flexpad.css'
@@ -12,11 +12,12 @@ import PackageScene from './scenes/PackageScene'
 import NotFoundScene from './scenes/NotFoundScene'
 
 import store from './state/store'
+import history from './history'
 import * as serviceWorker from './serviceWorker'
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
+    <Router history={history}>
       <Layout>
         <Switch>
           <Route exact path="/" component={RootScene} />

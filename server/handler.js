@@ -47,8 +47,19 @@ async function getPackage(event, context) {
 
   delete metadata.versions
 
-  const creation = toNpmDateFormat(new Date(metadata.time.created))
+  let creation
   let today = toNpmDateFormat(new Date())
+
+  if (metadata.time) {
+    creation = toNpmDateFormat(new Date(metadata.time.created))
+  }
+  else {
+    const d = new Date()
+
+    d.setFullYear(d.getFullYear() - 1)
+
+    creation = toNpmDateFormat(d)
+  }
 
   const downloads = []
 

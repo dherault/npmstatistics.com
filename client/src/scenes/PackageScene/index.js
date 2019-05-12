@@ -19,13 +19,17 @@ class PackageScene extends Component {
   }
 
   componentDidUpdate() {
-    if (this.hasCharts) return
+    const { packageData, match: { params: { packageId } } } = this.props
 
-    Chart.defaults.global.defaultFontFamily = "'Lato', sans-serif"
+    if (!packageData) {
+      return API.fetchPackage(packageId)
+    }
 
-    this.hasCharts = true
+    if (packageData.error || this.packageId === packageId) return
 
-    const { packageData } = this.props
+    this.packageId = packageId
+
+    Chart.defaults.global.defaultFontFamily = "'Roboto', sans-serif"
 
     const elementId = 'chart-daily'
 
@@ -102,7 +106,7 @@ class PackageScene extends Component {
     return (
       <div className="PackageScene">
         {this.renderTitle()}
-        Not found
+        The packge does not exist.
       </div>
     )
   }
