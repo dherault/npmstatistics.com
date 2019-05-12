@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import './index.css'
+import './Layout.css'
 
 function NotFoundScene({ children }) {
   return (

@@ -1,0 +1,13 @@
+.Layout-nav {
+  padding: 0 10%;
+  min-height: 64px;
+}
+
+.Layout-nav-brand {
+  text-decoration: none;
+  color: goldenrod;
+}
+
+.Layout-content {
+  padding: 0 10%;
+}

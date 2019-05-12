@@ -40,8 +40,8 @@ class PackageScene extends Component {
         datasets: [
           {
             data: dailyDownloads,
-            backgroundColor: color('#ff0000').alpha(0.5).rgbString(),
-            borderColor: '#ff0000',
+            backgroundColor: color('goldenrod').alpha(0.5).rgbString(),
+            borderColor: 'goldenrod',
             type: 'line',
             pointRadius: 0,
             fill: false,
@@ -126,7 +126,7 @@ class PackageScene extends Component {
     return (
       <div className="PackageScene">
         {this.renderTitle()}
-        <canvas id="chart-daily" />
+        <canvas id="chart-daily" className="PackageScene-canvas" />
       </div>
     )
   }
