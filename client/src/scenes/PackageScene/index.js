@@ -38,19 +38,30 @@ class PackageScene extends Component {
       t: moment(point.day),
     }))
 
-    this.dailyChart = new Chart(elementId, {
+    const dailyVersions = Object.keys(packageData.time)
+    .filter(key => key !== 'created' && key !== 'modified')
+    .map(key => ({
+      y: 10,
+      t: moment(packageData.time[key]),
+    }))
+
+    console.log('dailyVersions', dailyVersions)
+
+    if (this.chart) this.chart.destroy()
+
+    this.chart = new Chart(elementId, {
       type: 'line',
       data: {
         datasets: [
           {
+            type: 'line',
             data: dailyDownloads,
             backgroundColor: color('goldenrod').alpha(0.5).rgbString(),
             borderColor: 'goldenrod',
-            type: 'line',
-            pointRadius: 0,
             fill: false,
             borderWidth: 1,
             lineTension: 0,
+            pointRadius: 0,
           },
         ],
       },

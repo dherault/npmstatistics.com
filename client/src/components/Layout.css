@@ -6,6 +6,7 @@
 .Layout-nav-brand {
   text-decoration: none;
   color: goldenrod;
+  font-family: 'Roboto Mono', monospace;
 }
 
 .Layout-nav-select {
