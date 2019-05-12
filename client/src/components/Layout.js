@@ -39,7 +39,7 @@ class Layout extends Component {
     const { searchType, search } = this.state
 
     return (
-      <div className="Layout">
+      <>
         <nav className="Layout-nav x4">
           <Link to="/" className="Layout-nav-brand">
             NPM Statistics
@@ -67,7 +67,7 @@ class Layout extends Component {
         <div className="Layout-content">
           {children}
         </div>
-      </div>
+      </>
     )
   }
 }
