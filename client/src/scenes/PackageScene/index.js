@@ -11,23 +11,29 @@ import API from '../../api'
 class PackageScene extends Component {
 
   componentDidMount() {
-    const { packageData } = this.props
+    const { packageData, match: { params: { packageId } } } = this.props
 
-    if (!packageData) {
-      API.fetchPackage(this.props.match.params.packageId)
-    }
+    if (!packageData) return API.fetchPackage(packageId)
+
+    this.drawChart()
   }
 
   componentDidUpdate() {
     const { packageData, match: { params: { packageId } } } = this.props
 
-    if (!packageData) {
-      return API.fetchPackage(packageId)
-    }
+    if (!packageData) return API.fetchPackage(packageId)
 
-    if (packageData.error || this.packageId === packageId) return
+    if (this.packageId === packageId) return
 
     this.packageId = packageId
+
+    this.drawChart()
+  }
+
+  drawChart() {
+    const { packageData } = this.props
+
+    if (packageData.error) return
 
     Chart.defaults.global.defaultFontFamily = "'Roboto', sans-serif"
 
@@ -62,6 +68,10 @@ class PackageScene extends Component {
             borderWidth: 1,
             lineTension: 0,
             pointRadius: 0,
+          },
+          {
+            type: 'bar',
+            data: dailyVersions,
           },
         ],
       },

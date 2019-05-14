@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import GitHubButton from 'react-github-btn'
 
 import './Layout.css'
 
@@ -45,7 +46,19 @@ class Layout extends Component {
             NPM Statistics
           </Link>
 
-          <form onSubmit={this.handleSubmit} className="x4">
+          <div className="Layout-nav-github">
+            <GitHubButton
+              href="https://github.com/dherault/npmstatistics.com"
+              data-icon="octicon-star"
+              data-size="large"
+              data-show-count="true"
+              aria-label="Star dherault/npmstatistics.com on GitHub"
+            >
+              Star
+            </GitHubButton>
+          </div>
+
+          <form onSubmit={this.handleSubmit} className="Layout-nav-search x4">
             <select
               value={searchType}
               onChange={this.handleSelectChange}
